@@ -1,13 +1,11 @@
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className={`navbar navbar-expand-lg bg-${props.mode}`}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            TextUtlis
-          </a>
+          <a className={`navbar-brand text-${props.mode==='light'?'dark':'light'}`}>{props.title}</a>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,17 +20,15 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a className={`nav-link active text-${props.mode==='light'?'dark':'light'}`} aria-current="page">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  About
-                </a>
+                <a className={`nav-link text-${props.mode==='light'?'dark':'light'}`}>About</a>
               </li>
             </ul>
-            <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
@@ -42,7 +38,19 @@ export default function Navbar() {
               <button className="btn btn-outline-primary" type="submit">
                 Search
               </button>
-            </form>
+            </form> */}
+            <div className="form-check form-switch">
+              <label className={`form-check-label text-${props.mode==='light'?'dark':'light'}`} htmlFor="myBox">
+                {props.modeName}
+              </label>
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="myBox"
+                onClick={props.toggleMode}
+              />
+            </div>
           </div>
         </div>
       </nav>
