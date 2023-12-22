@@ -1,6 +1,12 @@
-## Preview
+## Light Preview
 
 ![Previw](https://github.com/Ninja-Vikash/Assets/blob/main/Text-Utils/Preview.png)
+
+## Dark Preview
+
+![Previw](https://github.com/Ninja-Vikash/Assets/blob/main/Text-Utils/dark-preview.png)
+
+
 
 # Getting Started with Create React App
 
