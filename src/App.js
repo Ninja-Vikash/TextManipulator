@@ -12,14 +12,12 @@ function App() {
     backgroundColor : 'white',
     color : 'black'
   })
-  const [type, setType] = useState(null)
-  const showMsg = ()=>{
-    if(mode === 'light'){
-      setType('Sucess! dark mode is enabled')
-    }
-    else{
-      setType('Success! light mode is enabled')
-    }
+  const [alert, setAlert] = useState(null)
+  const showMsg = (type, message)=>{
+    setAlert({
+      type : type,
+      msg : message
+    })
   }
 
   const toggleMode = ()=> {
@@ -32,10 +30,10 @@ function App() {
       backgroundColor : '#333',
       color : 'white'
      });
-     showMsg()
+     showMsg("success", "dark mode has been enabled")
      setTimeout(() => {
-       setType(null)
-      }, 1500);
+      setAlert(null)
+     }, 1500);
     }
     else{
       setMode('light');
@@ -46,17 +44,17 @@ function App() {
         backgroundColor : 'white',
         color : 'black'
        });
-      showMsg()
+      showMsg("success", "light mode has been enabled");
       setTimeout(() => {
-       setType(null)
-      }, 1500);
+        setAlert(null)
+       }, 1500);
     }
   }
 
   return (
     <>
     <Navbar title="TextManipulator" mode={mode} toggleMode={toggleMode} modeName={modeName}/>
-    <Alert type={type}/>
+    <Alert alert={alert}/>
     <div className="container">
       <TextForm heading='Enter your text to analyse' mode={mode} myStyle={myStyle}/>
     </div>
