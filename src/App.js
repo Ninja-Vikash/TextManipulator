@@ -1,8 +1,9 @@
 import './App.css';
+// import About from './components/About';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 
 function App() {
@@ -53,11 +54,20 @@ function App() {
 
   return (
     <>
+    {/* <Router> */}
     <Navbar title="TextManipulator" mode={mode} toggleMode={toggleMode} modeName={modeName}/>
     <Alert alert={alert}/>
     <div className="container">
-      <TextForm heading='Enter your text to analyse' mode={mode} myStyle={myStyle}/>
+    {/* <Switch> */}
+          {/* <Route path="/about"> */}
+            {/* <About /> */}
+          {/* </Route> */}
+          {/* <Route path="/"> */}
+            <TextForm heading='Enter your text to analyse' mode={mode} myStyle={myStyle}/>
+          {/* </Route> */}
+    {/* </Switch> */}
     </div>
+    {/* </Router> */}
     </>
   );
 }
