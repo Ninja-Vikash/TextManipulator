@@ -17,7 +17,6 @@ export default function TextForm(props) {
     }
 
     const clickOnClear = ()=> {
-        // console.log("I am clear")
         setText('')
     }
 
@@ -37,7 +36,7 @@ export default function TextForm(props) {
     <div className="container my-3">
         <h2>Your text summary</h2>
         <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} letters</p>
-        <p>{0.008 * text.split(" ").length} Minutes to read</p>
+        <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to read</p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Enter your text above to preview here"}</p>
     </div>

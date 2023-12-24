@@ -13,6 +13,7 @@ function App() {
     backgroundColor : 'white',
     color : 'black'
   })
+  
   const [alert, setAlert] = useState(null)
   const showMsg = (type, message)=>{
     setAlert({
