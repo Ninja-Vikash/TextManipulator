@@ -20,6 +20,10 @@ export default function TextForm(props) {
         setText(event.target.value)
     }
 
+    const clickOnCopy = ()=>{
+        navigator.clipboard.writeText(text);
+    }
+
     const clickOnClear = ()=> {
         setText('')
     }
@@ -35,11 +39,12 @@ export default function TextForm(props) {
 
         <div className="btn btn-primary my-4 mx-2" onClick={clickOnUppercase}>UPPERCASE</div>
         <div className="btn btn-primary mx-2" onClick={clickOnLowercase}>LOWERCASE</div>
+        <div className="btn btn-primary mx-2" onClick={clickOnCopy}>COPY</div>
         <div className="btn btn-primary mx-2" onClick={clickOnClear}>CLEAR</div>
     </div>
     <div className="container my-3">
         <h2>Your text summary</h2>
-        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} letters</p>
+        <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} letters</p>
         <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to read</p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Nothing to preview"}</p>
